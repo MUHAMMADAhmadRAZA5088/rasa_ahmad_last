@@ -1,0 +1,13 @@
+we care about
+- availability
+- location
+- pricing
+
+
+Question:
+
+- Why we need slot_was_set bcz I wanna make a scenario in which if location isn't set in attempt want to store null otherwise the orignal do i need to do it using slots? because slot is already storing the location
+- Do we need to store multiple type of scenarios because right now if i change the format then it doesn't pick the location from message
+
+
+form action will used to validate

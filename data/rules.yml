@@ -1,0 +1,52 @@
+version: '3.1'
+
+rules:
+
+- rule: greet Activate form
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: get_availability_form
+  - active_loop: get_availability_form
+
+
+- rule: Say 'I am a bot' Activate form
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - action: get_availability_form
+  - active_loop: get_availability_form
+
+- rule: Activate form
+  steps:
+  - intent: inform
+  - action: get_availability_form
+  - active_loop: get_availability_form
+
+- rule: Submit form
+  condition:
+  - active_loop: get_availability_form
+  steps:
+  - action: get_availability_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: do_db_call
+  - intent: largest
+  - action: large_house
+
+
+
+- rule: Interruption in get_availability_form
+  condition:
+  # Condition that form is active.
+  - active_loop: get_availability_form
+  steps:
+  # This unhappy path handles the case of an intent `bot_challenge`.
+  - intent: bot_challenge
+  - action: utter_iamabot
+  # Return to form after handling the `bot_challenge` intent
+  - action: get_availability_form
+  - active_loop: get_availability_form
+  
+

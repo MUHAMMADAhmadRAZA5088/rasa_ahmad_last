@@ -1,0 +1,36 @@
+# rasax specific settings
+rasax:
+    # initialUser is the user which is created upon the initial start of Rasa Enterprise
+    initialUser:
+        # username specifies a name of this user - defaults to "admin"
+        username: "admin"
+        # password for the Rsa Enaterprise user
+        password: "password-for-demo-purposes"
+    # passwordSalt Rasa Enterprise uses to salt the user passwords
+    passwordSalt: "password-for-demo-purposes"
+    # token Rasa Enterprise accepts as authentication token from other Rasa services
+    token: "password-for-demo-purposes"
+    # jwtSecret which is used to sign the jwtTokens of the users
+    jwtSecret: "password-for-demo-purposes"
+    tag: "0.42.0"
+# rasa: Settings common for all Rasa containers
+rasa:
+    # token Rasa accepts as authentication token from other Rasa services
+    token: "password-for-demo-purposes"
+    tag: "2.8.0-full"
+# RabbitMQ specific settings
+rabbitmq:
+    # rabbitmq settings of the subchart
+    auth:
+        # password which is used for the authentication
+        password: "password-for-demo-purposes"
+# global settings of the used subcharts
+global:
+    # postgresql: global settings of the postgresql subchart
+    postgresql:
+        # postgresqlPassword is the password which is used when the postgresqlUsername equals "postgres"
+        postgresqlPassword: "password-for-demo-purposes"
+    # redis: global settings of the redis subchart
+    redis:
+        # password to use in case there no external secret was provided
+        password: "password-for-demo-purposes"

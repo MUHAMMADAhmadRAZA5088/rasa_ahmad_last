@@ -1,0 +1,63 @@
+version: '3.1'
+slots:
+  location:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: GPE
+  availability:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: time
+  amount:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: amount-of-money
+entities:
+- GPE
+- time
+- amount-of-money
+intents:
+- largest
+- bot_challenge
+- greet
+- inform
+
+forms:
+  get_availability_form:
+    required_slots:
+    - location
+    - amount
+    - availability
+responses:
+  utter_greet:
+  - text: What can I do to help you about property?
+  utter_iamabot:
+  - text: I am a property chatbot, .
+  utter_ask_location:
+  - text: Can you please tell me your location?
+  utter_ask_amount:
+  - text: Can you please tell me your budget?
+  utter_ask_availability:
+  - text: Can you please tell me your date you wanna book?
+  utter_submit:
+  - text: I will now find property for you!
+  utter_slots_values:
+  - text: Fields are {availability} -- {location} -- {amount}!
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- validate_get_availability_form
+- action_get_booking_data
+- do_db_call
+- utter_ask_location
+- utter_ask_amount
+- utter_ask_availability
+- utter_submit
+- action_store_amount
+- action_default_fallback
+- large_house

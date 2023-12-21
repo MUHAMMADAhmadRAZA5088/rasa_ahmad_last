@@ -1,0 +1,36 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+- intent: inform
+  examples: |
+    - Hey I'm looking for a house in Beverly Hills
+    - I have a preference for properties in Seattle
+    - How about checking out properties in Denver?
+    - I'm interested in properties in Miami Beach.
+    - I'd like to find something in Chicago.
+    - My preferred location is Austin.
+    - I want to explore properties in San Francisco.
+    - House in the Hollywood Hills from May 15 to June 15. Budget is 30000
+    - I'm looking for a house in Beverly Hills from August 12 to August 19. My budget is 3000.
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - How are you?
+
+- intent: largest
+  examples: |
+    - Which is the biggest house?
+    - big house
+    - large houese
+    - large
+
+
+
